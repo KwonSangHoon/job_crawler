@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>채용공고 검색</title>
+
+    <style>
+        body {
+            width: 700px;
+            margin: 50px auto;
+            font-family: Arial;
+        }
+
+        input {
+            width: 500px;
+            padding: 10px;
+        }
+
+        button {
+            padding: 10px 20px;
+        }
+
+        .job {
+            padding: 15px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .site {
+            color: blue;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+<h1>채용공고 통합 검색</h1>
+
+<form>
+    <input
+        type="text"
+        name="keyword"
+        placeholder="검색어를 입력하세요"
+        value="{{ keyword }}"
+    >
+
+    <button type="submit">검색</button>
+</form>
+
+<hr>
+
+{% for job in jobs %}
+
+<div class="job">
+
+    <span class="site">
+        [{{ job.site }}]
+    </span>
+
+    {{ job.title }}
+
+</div>
+
+{% endfor %}
+
+</body>
+</html>
